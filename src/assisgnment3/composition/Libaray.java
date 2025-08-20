@@ -20,8 +20,8 @@ public class Libaray {
         for (int i = 0; i < items.size(); i++) {
             Base item = items.get(i);
 
-            if (item instanceof Book) {
-                Book book = (Book) item;
+            if (items instanceof Book) {
+                Book book = (Book) items;
                 System.out.print(book.getTitle() + " by " + book.getAuthor());
             } else if (item instanceof Magazine) {
                 Magazine mag = (Magazine) item;

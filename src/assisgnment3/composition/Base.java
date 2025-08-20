@@ -5,6 +5,10 @@ public class Base {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Base() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public class Baseclass {
 		
 	    protected int id;
