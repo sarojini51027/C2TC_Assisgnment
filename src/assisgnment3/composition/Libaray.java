@@ -2,56 +2,52 @@ package assisgnment3.composition;
 
 
 
-	import java.util.ArrayList;
-	import java.util.List;
+import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.List;
 
-	public class Libaray {
+public class Libaray {
+	
+	private List<Base> items;
+
+    public Libaray() {
+        items = new ArrayList<>();
+    }
+
+    public void showAllItems() {
+        System.out.print("Library contains: [");
+
+        for (int i = 0; i < items.size(); i++) {
+            Base item = items.get(i);
+
+            if (item instanceof Book) {
+                Book book = (Book) item;
+                System.out.print(book.getTitle() + " by " + book.getAuthor());
+            } else if (item instanceof Magazine) {
+                Magazine mag = (Magazine) item;
+                System.out.print(mag.getTitle() + " Issue " + mag.getIssueNumber());
+            } else {
+                System.out.print(item.getTitle());
+            }
+
+            if (i < items.size() - 1) {
+                System.out.print(" - ");
+            }
+        }
+
+        System.out.println(" ]");
+    }
+
+	public void addBaseclass(Base book) {
 		
-		private List<Base> items;
-
-	    public Libaray() {
-	        items = new ArrayList<>();
-	    }
-
-	    public void showAllItems() {
-	        System.out.print("Library contains: [");
-
-	        for (int i = 0; i < items.size(); i++) {
-	            Base item = items.get(i);
-
-	            if (item instanceof Book) {
-	                Book book = (Book) item;
-	                System.out.print(book.getTitle() + " by " + book.getAuthor());
-	            } else if (item instanceof Magazine) {
-	                Magazine mag = (Magazine) item;
-	                System.out.print(mag.getTitle() + " Issue " + mag.getIssueNumber());
-	            } else {
-	                System.out.print(item.getTitle());
-	            }
-
-	            if (i < items.size() - 1) {
-	                System.out.print(" - ");
-	            }
-	        }
-
-	        System.out.println(" ]");
-	    }
-
-		public void addBaseclass(Base book) {
-			
-			items.add(book);
-		
-		}
-
-		public void addMagazine(Magazine magazine) {
-			
-			items.add(magazine);
-			
-		}
-
-		public void addBase(Book book) {
-			// TODO Auto-generated method stub
-			
-		}
-
+		items.add(book);
+	
 	}
+
+	public void addMagazine(Magazine magazine) {
+		
+		items.add(magazine);
+		
+	}
+
+}
