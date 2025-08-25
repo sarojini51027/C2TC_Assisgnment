@@ -34,7 +34,7 @@ package assisgnment4;
 
 	    public void setCustomer(String customer) {
 	        this.customer = customer;
-	    }
+	    } 
 
 	    public Integer getNoOfSeats() {
 	        return noOfSeats;

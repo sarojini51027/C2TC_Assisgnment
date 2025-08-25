@@ -1,53 +1,69 @@
 package assisgnment3.composition;
 
-
-
 import java.util.ArrayList;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Libaray {
-	
-	private List<Base> items;
+    ArrayList<Item> lib = new ArrayList<Item>();
 
-    public Libaray() {
-        items = new ArrayList<>();
+    public void addItem(Item item) {
+        lib.add(item);
     }
 
-    public void showAllItems() {
-        System.out.print("Library contains: [");
-
-        for (int i = 0; i < items.size(); i++) {
-            Base item = items.get(i);
-
-            if (items instanceof Book) {
-                Book book = (Book) items;
-                System.out.print(book.getTitle() + " by " + book.getAuthor());
-            } else if (item instanceof Magazine) {
-                Magazine mag = (Magazine) item;
-                System.out.print(mag.getTitle() + " Issue " + mag.getIssueNumber());
-            } else {
-                System.out.print(item.getTitle());
-            }
-
-            if (i < items.size() - 1) {
-                System.out.print(" - ");
-            }
+    public void displayAllItems() {
+        for (Item i : lib) {
+            i.displayInfo();
         }
+    }
+}
 
-        System.out.println(" ]");
+class Item {
+    private String title;
+    private long id;
+    private String author;
+    private int issueNumber;
+
+    public Item(long id, String title, String author) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
     }
 
-	public void addBaseclass(Base book) {
-		
-		items.add(book);
-	
-	}
+  
+    public Item(long id, String title, int issueNumber) {
+        this.id = id;
+        this.title = title;
+        this.issueNumber = issueNumber;
+    }
 
-	public void addMagazine(Magazine magazine) {
-		
-		items.add(magazine);
-		
-	}
+    public int getIssueNumber() {
+        return issueNumber;
+    }
 
+
+
+    public String getAuthor() {
+        return author;
+    }
+
+ 
+
+    public String getTitle() {
+        return title;
+    }
+
+
+
+    public long getId() {
+        return id;
+    }
+
+
+
+    public void displayInfo() {
+        if (author == null) {
+            System.out.println("Magazine: [ Id: " + getId() + " , Title: " + getTitle() + " , IssueNumber: " + issueNumber + " ]");
+        } else {
+            System.out.println("Book: [ Id: " + getId() + " , Title: " + getTitle() + " , Author: " + author + " ]");
+        }
+    }
 }
