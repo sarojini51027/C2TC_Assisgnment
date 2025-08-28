@@ -32,12 +32,10 @@ public class AirIndia {
 	    }
 
 	    // Implemented methods
-	    @Override
 	    public double calculateAmount() {
 	        return hours * costPerHour;
 	    }
 
-	    @Override
 	    public void display() {
 	        System.out.printf("%.2f%n", calculateAmount());
 	    }
